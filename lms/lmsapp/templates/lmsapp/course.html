@@ -1,0 +1,16 @@
+{% extends 'lmsapp/base.html' %}
+
+{% block title %}Courses{%  endblock %}
+
+{% block content %}
+{% for el in tasks %}
+    <div class="alert alert-warning mt-2">
+      <h3>{{ el.mainTitle }}</h3>
+      <p>{{el.mainContent}}</p>
+    </div>
+{% endfor %}
+
+
+
+
+{%  endblock %}

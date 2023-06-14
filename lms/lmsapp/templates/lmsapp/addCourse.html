@@ -1,0 +1,62 @@
+{% extends 'lmsapp/base.html' %}
+
+{% block title %}FAQs{%  endblock %}
+
+{% block content %}
+<h1>Add a note</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.mainTitle }}<br>
+    {{ form.mainContent }}
+    <button type="submit" class="btn btn-success">Add</button>
+    <span>{{error}}</span>
+
+</form>
+
+
+{% if task %}
+  {% for el in tasks %}
+    <div class="alert alert-warning mt-2">
+      <h3>{{ el.mainTitle }}</h3>
+      <p>{{el.mainContent}}</p>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>You don't have any courses</p>
+{% endif %}
+
+
+<h3>What Is a Learning Management System?</h3>
+
+<p>A learning management system is a web-based software used for enterprise,
+    small business, online training,<br> or higher education that enables students
+    to participate in courses online with instructor-led discussions.<br> Instructors
+    may provide lecture notes and homework assignments as well as grade student work.</p>
+
+
+
+<h3>What Are the Main Features of a Learning Management System?</h3>
+
+<p>Each learning management system is different
+    and offers a variety of features. <br>
+    Most LMSs are available in two versions: <br>
+    On-premises or Software as a service (SaaS). </p>
+
+
+<h3>How Does a School LMS Work?</h3>
+
+<p>LMSs in the education environment typically have
+    a student dashboard where they can upload files, <br>
+    assignments, and complete tests to receive feedback on
+    their progress. <br>Instructors or teachers then use the LMS as a platform to host
+    virtual course material which students access from their own computer. </p>
+
+
+
+<h3>When Would You Use an LMS?</h3>
+
+<p>Learning Management Systems are used in a wide range of industries and school types. <br>
+    This includes K-12 schools that use LMSs to handle everything from student registrations, <br>
+    homework assignments, and grades for students.</p>
+{%  endblock %}
